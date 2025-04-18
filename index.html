@@ -1,10 +1,109 @@
 <!DOCTYPE html>
-<html>
+<html lang="zh-CN">
 <head>
-    <title>我的第一个网站！</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="个人技术博客 - 分享技术成长与思考">
+    <meta name="keywords" content="技术博客,编程,前端,后端,开发笔记">
+    <link rel="stylesheet" href="style.css"> <!-- 引入CSS样式表 -->
+    <title>个人技术博客 - 我的技术成长之路</title>
 </head>
+
 <body>
-    <h1>嘿嘿，我也有个人网站啦！</h1>
-    <p>来自GitHub Pages的问候～</p>
+    <!-- 头部导航 -->
+    <header>
+        <nav>
+            <ul>
+                <li><a href="#">首页</a></li>
+                <li><a href="#">分类</a></li>
+                <li><a href="#">标签</a></li>
+                <li><a href="#">关于我</a></li>
+                <li><a href="#">归档</a></li>
+            </ul>
+        </nav>
+        <h1>我的技术博客</h1>
+        <p>记录技术成长，分享开发经验</p>
+    </header>
+
+    <!-- 侧边栏 -->
+    <aside>
+        <div class="widget">
+            <h3>最新文章</h3>
+            <ul>
+                <li><a href="#">文章标题1</a></li>
+                <li><a href="#">文章标题2</a></li>
+                <li><a href="#">文章标题3</a></li>
+            </ul>
+        </div>
+
+        <div class="widget">
+            <h3>热门文章</h3>
+            <!-- 使用动态数据填充 -->
+        </div>
+
+        <div class="widget">
+            <h3>标签云</h3>
+            <a href="#">Python</a>
+            <a href="#">前端</a>
+            <a href="#">算法</a>
+            <!-- 更多标签 -->
+        </div>
+
+        <div class="widget">
+            <h3>关于我</h3>
+            <p>技术小白，记录成长，技术分享，AI爱好者，现在网站只是一个框架，后面会逐渐完善</p>
+            <a href="#">GitHub</a>
+            <a href="#">微博</a>
+            <a href="#">邮箱</a>
+        </div>
+    </aside>
+
+    <!-- 主内容区 -->
+    <main>
+        <!-- 文章列表页 -->
+        <div class="post-list">
+            <article>
+                <h2><a href="#">文章标题1</a></h2>
+                <p class="meta">作者：XXX | 发布于：2023-XX-XX | 分类：前端开发 | 标签：React, Hooks</p>
+                <p>文章摘要内容...</p>
+            </article>
+
+            <!-- 更多文章 -->
+        </div>
+
+        <!-- 文章详情页（示例） -->
+        <div class="post-detail">
+            <h2>文章标题1</h2>
+            <p class="meta">作者：XXX | 发布于：2023-XX-XX | 分类：前端开发 | 标签：React, Hooks</p>
+
+            <div class="content">
+                <!-- 文章正文内容（Markdown格式或HTML） -->
+                <h3>一、引言</h3>
+                <p>正文段落1...</p>
+                <pre><code>代码示例</code></pre>
+                <!-- 更多章节 -->
+            </div>
+
+            <div class="pagination">
+                <a href="#">上一篇</a>
+                <a href="#">下一篇</a>
+            </div>
+
+            <!-- 评论框（使用第三方服务如Disqus，或自行开发） -->
+            <div id="comment-section">
+                <h3>评论区</h3>
+                <!-- 加载评论系统 -->
+            </div>
+        </div>
+    </main>
+
+    <!-- 页脚 -->
+    <footer>
+        <p>&copy; 2025 个人技术博客</p>
+        <p>联系邮箱：cnhjr@foxmail.com</p>
+    </footer>
+
+    <!-- 引入JavaScript（如第三方评论系统、统计分析等） -->
+    <script src="script.js"></script>
 </body>
 </html>
