@@ -50,6 +50,11 @@
         nav ul li a {
             color: white;
             text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        nav ul li a:hover {
+            color: #3498db;
         }
 
         main {
@@ -95,6 +100,76 @@
             margin-right: 0.5rem;
             font-size: 0.9rem;
         }
+        
+        .categories ul li {
+            margin-bottom: 0.5rem;
+        }
+        
+        .categories ul li a {
+            color: #2c3e50;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+        
+        .categories ul li a:hover {
+            color: #3498db;
+        }
+        
+        .read-more-btn {
+            display: inline-block;
+            background-color: #3498db;
+            color: white;
+            padding: 0.5rem 1rem;
+            border-radius: 3px;
+            text-decoration: none;
+            transition: background-color 0.3s;
+            margin-top: 1rem;
+        }
+        
+        .read-more-btn:hover {
+            background-color: #2980b9;
+        }
+        
+        .page {
+            display: none;
+        }
+        
+        .page.active {
+            display: block;
+        }
+        
+        #projects-page .project-card {
+            background-color: white;
+            padding: 1.5rem;
+            border-radius: 5px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            margin-bottom: 1.5rem;
+        }
+        
+        #about-page .profile {
+            display: flex;
+            align-items: center;
+            margin-bottom: 2rem;
+        }
+        
+        #about-page .profile-image {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            background-color: #ddd;
+            margin-right: 2rem;
+        }
+        
+        .social-links {
+            display: flex;
+            gap: 1rem;
+            margin-top: 1rem;
+        }
+        
+        .social-links a {
+            color: #3498db;
+            text-decoration: none;
+        }
     </style>
 </head>
 <body>
@@ -108,45 +183,199 @@
     <nav>
         <div class="container">
             <ul>
-                <li><a href="#home">首页</a></li>
-                <li><a href="#articles">文章</a></li>
-                <li><a href="#projects">项目</a></li>
-                <li><a href="#about">关于我</a></li>
+                <li><a href="#home" onclick="showPage('home-page')">首页</a></li>
+                <li><a href="#articles" onclick="showPage('articles-page')">文章</a></li>
+                <li><a href="#projects" onclick="showPage('projects-page')">项目</a></li>
+                <li><a href="#about" onclick="showPage('about-page')">关于我</a></li>
             </ul>
         </div>
     </nav>
 
     <div class="container">
-        <main>
-            <section class="blog-posts">
+        <div id="home-page" class="page active">
+            <main>
+                <section class="blog-posts">
+                    <h2>最新文章</h2>
+                    <article>
+                        <h2><a href="article1.html">Python中的异步编程指南</a></h2>
+                        <div class="meta">
+                            <span>发布日期: 2024-01-20</span>
+                            <span class="tag">Python</span>
+                            <span class="tag">异步</span>
+                        </div>
+                        <p>异步编程是Python中处理并发任务的强大工具。本文将深入探讨asyncio库的使用方法，以及如何构建高效的异步应用程序。我们将通过实际案例展示异步编程如何提高I/O密集型应用的性能...</p>
+                        <a href="article1.html" class="read-more-btn">阅读更多</a>
+                    </article>
+                    
+                    <article>
+                        <h2><a href="article2.html">React与Redux状态管理实战</a></h2>
+                        <div class="meta">
+                            <span>发布日期: 2024-01-15</span>
+                            <span class="tag">JavaScript</span>
+                            <span class="tag">React</span>
+                            <span class="tag">Redux</span>
+                        </div>
+                        <p>在大型React应用中，状态管理往往成为一个复杂的问题。Redux提供了一种集中式的状态管理解决方案，通过单向数据流简化应用架构。本文将结合实际项目，讲解Redux的核心概念及最佳实践...</p>
+                        <a href="article2.html" class="read-more-btn">阅读更多</a>
+                    </article>
+                    
+                    <article>
+                        <h2><a href="article3.html">Docker容器化应用部署最佳实践</a></h2>
+                        <div class="meta">
+                            <span>发布日期: 2024-01-10</span>
+                            <span class="tag">DevOps</span>
+                            <span class="tag">Docker</span>
+                            <span class="tag">容器化</span>
+                        </div>
+                        <p>容器化技术彻底改变了应用部署的方式。本文将深入讲解Docker的核心概念，从Dockerfile的编写到多容器应用的编排，帮助你构建可靠、可扩展的容器化应用...</p>
+                        <a href="article3.html" class="read-more-btn">阅读更多</a>
+                    </article>
+                </section>
+
+                <aside class="sidebar">
+                    <div class="about-me">
+                        <h3>关于我</h3>
+                        <p>一名热爱技术、不断学习的程序员</p>
+                        <a href="#about" onclick="showPage('about-page')" class="read-more-btn">了解更多</a>
+                    </div>
+                    <div class="categories">
+                        <h3>文章分类</h3>
+                        <ul>
+                            <li><a href="#frontend" onclick="filterByCategory('前端开发')">前端开发</a></li>
+                            <li><a href="#backend" onclick="filterByCategory('后端技术')">后端技术</a></li>
+                            <li><a href="#algorithm" onclick="filterByCategory('算法研究')">算法研究</a></li>
+                            <li><a href="#tools" onclick="filterByCategory('开发工具')">开发工具</a></li>
+                        </ul>
+                    </div>
+                </aside>
+            </main>
+        </div>
+        
+        <div id="articles-page" class="page">
+            <h2>全部文章</h2>
+            <div class="blog-posts">
                 <article>
-                    <h2>文章标题</h2>
+                    <h2><a href="article1.html">Python中的异步编程指南</a></h2>
                     <div class="meta">
                         <span>发布日期: 2024-01-20</span>
                         <span class="tag">Python</span>
-                        <span class="tag">Web开发</span>
+                        <span class="tag">异步</span>
                     </div>
-                    <p>这里是文章内容的预览...</p>
-                    <a href="#read-more">阅读更多</a>
+                    <p>异步编程是Python中处理并发任务的强大工具。本文将深入探讨asyncio库的使用方法，以及如何构建高效的异步应用程序。我们将通过实际案例展示异步编程如何提高I/O密集型应用的性能...</p>
+                    <a href="article1.html" class="read-more-btn">阅读更多</a>
                 </article>
-            </section>
-
-            <aside class="sidebar">
-                <div class="about-me">
-                    <h3>关于我</h3>
-                    <p>一名热爱技术、不断学习的程序员</p>
+                
+                <article>
+                    <h2><a href="article2.html">React与Redux状态管理实战</a></h2>
+                    <div class="meta">
+                        <span>发布日期: 2024-01-15</span>
+                        <span class="tag">JavaScript</span>
+                        <span class="tag">React</span>
+                        <span class="tag">Redux</span>
+                    </div>
+                    <p>在大型React应用中，状态管理往往成为一个复杂的问题。Redux提供了一种集中式的状态管理解决方案，通过单向数据流简化应用架构。本文将结合实际项目，讲解Redux的核心概念及最佳实践...</p>
+                    <a href="article2.html" class="read-more-btn">阅读更多</a>
+                </article>
+                
+                <article>
+                    <h2><a href="article3.html">Docker容器化应用部署最佳实践</a></h2>
+                    <div class="meta">
+                        <span>发布日期: 2024-01-10</span>
+                        <span class="tag">DevOps</span>
+                        <span class="tag">Docker</span>
+                        <span class="tag">容器化</span>
+                    </div>
+                    <p>容器化技术彻底改变了应用部署的方式。本文将深入讲解Docker的核心概念，从Dockerfile的编写到多容器应用的编排，帮助你构建可靠、可扩展的容器化应用...</p>
+                    <a href="article3.html" class="read-more-btn">阅读更多</a>
+                </article>
+                
+                <article>
+                    <h2><a href="article4.html">算法与数据结构：从理论到实践</a></h2>
+                    <div class="meta">
+                        <span>发布日期: 2024-01-05</span>
+                        <span class="tag">算法</span>
+                        <span class="tag">数据结构</span>
+                    </div>
+                    <p>算法和数据结构是计算机科学的基础。本文将深入浅出地讲解常见算法和数据结构，从理论原理到实际应用，帮助你构建高效的程序...</p>
+                    <a href="article4.html" class="read-more-btn">阅读更多</a>
+                </article>
+                
+                <article>
+                    <h2><a href="article5.html">现代CSS技术详解</a></h2>
+                    <div class="meta">
+                        <span>发布日期: 2023-12-28</span>
+                        <span class="tag">CSS</span>
+                        <span class="tag">前端开发</span>
+                    </div>
+                    <p>CSS技术在近年来有了长足的发展。本文将介绍Flexbox、Grid、CSS变量等现代CSS技术，以及如何运用这些技术构建灵活、响应式的Web界面...</p>
+                    <a href="article5.html" class="read-more-btn">阅读更多</a>
+                </article>
+            </div>
+        </div>
+        
+        <div id="projects-page" class="page">
+            <h2>我的项目</h2>
+            <div class="project-card">
+                <h3><a href="https://github.com/username/project1" target="_blank">智能任务管理系统</a></h3>
+                <div class="meta">
+                    <span class="tag">React</span>
+                    <span class="tag">Node.js</span>
+                    <span class="tag">MongoDB</span>
                 </div>
-                <div class="categories">
-                    <h3>文章分类</h3>
-                    <ul>
-                        <li>前端开发</li>
-                        <li>后端技术</li>
-                        <li>算法研究</li>
-                        <li>开发工具</li>
-                    </ul>
+                <p>一个基于AI的任务管理系统，能够智能分析用户的任务优先级并提供建议。使用React开发前端界面，Node.js构建后端API，MongoDB存储数据。</p>
+                <a href="https://github.com/username/project1" target="_blank" class="read-more-btn">查看项目</a>
+            </div>
+            
+            <div class="project-card">
+                <h3><a href="https://github.com/username/project2" target="_blank">代码质量分析工具</a></h3>
+                <div class="meta">
+                    <span class="tag">Python</span>
+                    <span class="tag">机器学习</span>
                 </div>
-            </aside>
-        </main>
+                <p>一个基于机器学习的代码质量分析工具，可以自动识别代码中的潜在问题并提供改进建议。支持多种编程语言，如Java、Python、JavaScript等。</p>
+                <a href="https://github.com/username/project2" target="_blank" class="read-more-btn">查看项目</a>
+            </div>
+            
+            <div class="project-card">
+                <h3><a href="https://github.com/username/project3" target="_blank">分布式文件存储系统</a></h3>
+                <div class="meta">
+                    <span class="tag">Go</span>
+                    <span class="tag">分布式系统</span>
+                </div>
+                <p>一个高性能、高可用的分布式文件存储系统，支持文件的冗余存储、快速检索和故障自动恢复。使用Go语言开发，具有优秀的并发性能。</p>
+                <a href="https://github.com/username/project3" target="_blank" class="read-more-btn">查看项目</a>
+            </div>
+        </div>
+        
+        <div id="about-page" class="page">
+            <h2>关于我</h2>
+            <div class="profile">
+                <div class="profile-image"></div>
+                <div class="profile-info">
+                    <h3>张三</h3>
+                    <p>全栈开发工程师 | 技术博主 | 开源贡献者</p>
+                    <p>我是一名拥有5年经验的全栈开发工程师，专注于Web应用和分布式系统的设计与开发。热爱技术分享，经常在各大技术社区发表文章，同时也是多个开源项目的积极贡献者。</p>
+                    <div class="social-links">
+                        <a href="https://github.com/username" target="_blank">GitHub</a>
+                        <a href="https://twitter.com/username" target="_blank">Twitter</a>
+                        <a href="https://linkedin.com/in/username" target="_blank">LinkedIn</a>
+                    </div>
+                </div>
+            </div>
+            
+            <h3>技能</h3>
+            <ul>
+                <li>前端开发：HTML, CSS, JavaScript, React, Vue.js</li>
+                <li>后端开发：Node.js, Python, Java, Go</li>
+                <li>数据库：MySQL, MongoDB, Redis</li>
+                <li>DevOps：Docker, Kubernetes, CI/CD</li>
+                <li>其他：算法设计, 系统架构, 项目管理</li>
+            </ul>
+            
+            <h3>联系方式</h3>
+            <p>Email: example@email.com</p>
+            <p>微信公众号: 技术探索之路</p>
+        </div>
     </div>
 
     <footer>
@@ -154,5 +383,30 @@
             <p>© 2024 技术博客. All rights reserved.</p>
         </div>
     </footer>
+
+    <script>
+        // 页面切换功能
+        function showPage(pageId) {
+            // 隐藏所有页面
+            document.querySelectorAll('.page').forEach(page => {
+                page.classList.remove('active');
+            });
+            
+            // 显示选中的页面
+            document.getElementById(pageId).classList.add('active');
+        }
+        
+        // 按分类筛选文章
+        function filterByCategory(category) {
+            alert('筛选分类: ' + category);
+            // 这里可以添加实际的文章筛选逻辑
+            showPage('articles-page');
+        }
+        
+        // 页面加载时默认显示首页
+        document.addEventListener('DOMContentLoaded', function() {
+            showPage('home-page');
+        });
+    </script>
 </body>
 </html>
