@@ -1,2 +1,2 @@
-# Bnadwe.github.io
+# Bandwe.github.io
 我的第一个网站
